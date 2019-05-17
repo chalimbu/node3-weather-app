@@ -9,10 +9,11 @@ const forecast = (latitude, longitude, callback) => {
             callback('unable to fin location', undefined)
         } else {
             const { currently: actual } = body
-            const { precipProbability, temperature } = actual
+            const { precipProbability, temperature, humidity, pressure } = actual
             const { summary } = body.daily.data[0]
             const resul = summary + ' ' + 'It is currently ' + temperature +
-                'farenheit degreess out.' + 'There is a ' + precipProbability + '% chance of rain'
+                'farenheit degreess out.' + 'There is a ' + precipProbability + '% chance of rain.' +
+                'Wiht humidity of ' + humidity + ' and a pressure of ' + pressure
             callback(undefined, resul)
         }
 
